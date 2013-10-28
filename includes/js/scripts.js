@@ -19,9 +19,6 @@ function mp_parallax($){
 		bg_speed = $(this).attr( 'mp_brick_parallax_bg_speed' );
 		m1_speed = $(this).attr( 'mp_brick_parallax_m1_speed' );
 		m2_speed = $(this).attr( 'mp_brick_parallax_m2_speed' );
-		
-		//Show. This prevents it from "jumping" when the DOM is loaded
-		$(this).css('visibility', 'visible');
 				
 		//If this brick is in view
 		if ( mp_brick_y < windowHeight && mp_brick_y > ( 0 - mp_brick_height ) ){
@@ -53,6 +50,11 @@ function mp_parallax_isMobile() {
 }
 
 jQuery(document).ready(function($){
+	
+	$('.mp-brick-parallax').each(function(){
+		//Show. This prevents it from "jumping" when the DOM is loaded
+		$(this).css('visibility', 'visible');
+	})
 	
 	//Only run Parallax on desktops. Mobile browsers aren't ready.
 	if (!mp_parallax_isMobile()){
