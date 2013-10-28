@@ -25,13 +25,13 @@
 function mp_stacks_parallax_scripts(){
 	
 	//Scripts
-	wp_enqueue_script( 'iscroll5', plugins_url( '/js/iScroll5.js', dirname( __FILE__ ), array( 'jquery' ) ) );
+	wp_enqueue_script( 'iscroll5', plugins_url( '/js/iScroll5.js', dirname( __FILE__ ) ), array( 'jquery' ) );
 	
 	//Scripts
-	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ), array( 'jquery', 'iscroll5' ) ) );
+	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery', 'iscroll5' ) );
 	
 	//css
-	wp_enqueue_style( 'mp_stacks_parallax_css', plugins_url( '/css/style.css', dirname( __FILE__ ) ) );
+	wp_enqueue_style( 'mp_stacks_parallax_css', plugins_url( '/css/style.css', dirname( __FILE__ ) ), array( 'mp_stacks_style' ) );
 	
 }
 add_action( 'wp_enqueue_scripts', 'mp_stacks_parallax_scripts');
