@@ -37,27 +37,28 @@ function mp_parallax($){
 			
 			//Right Media Type
 			mp_brick.find( '.mp-brick-right' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_media_type_2 + 'px, 0px)' );
-			
-			
 						
 		}
 	}); 
 }
 
+function mp_parallax_isMobile() {
+  var index = navigator.appVersion.indexOf("Mobile");
+  return (index > -1);
+}
+
 jQuery(document).ready(function($){
 	
-	//Set the background image div to be double the size of the brick
-	$('.mp-brick-parallax').each(function(){
-		//Brick variables
-		var mp_brick = $(this);
-		var mp_brick_height = mp_brick.height();
-		var mp_brick_bg = $(this).find('.mp-brick-bg'); 
-	});
-	
-	mp_parallax($);
-	
-	$(window).scroll(function() {
+	//Only run Parallax on desktops. Mobile browsers aren't ready.
+	if (!mp_parallax_isMobile()){
+		
+		//Run on page load	
 		mp_parallax($);
-	});
+		
+		//Run on Scroll
+		$(window).scroll(function() {
+			mp_parallax($);
+		});
+	}
 	
 }); 

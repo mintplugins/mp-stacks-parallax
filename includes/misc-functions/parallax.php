@@ -25,7 +25,10 @@
 function mp_stacks_parallax_scripts(){
 	
 	//Scripts
-	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ), array( 'jquery', 'mp_stacks_parallax_parallax', 'mp_stacks_parallax_localscroll' ) ) );
+	wp_enqueue_script( 'iscroll5', plugins_url( '/js/iScroll5.js', dirname( __FILE__ ), array( 'jquery' ) ) );
+	
+	//Scripts
+	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ), array( 'jquery', 'iscroll5' ) ) );
 	
 	//css
 	wp_enqueue_style( 'mp_stacks_parallax_css', plugins_url( '/css/style.css', dirname( __FILE__ ) ) );
@@ -114,15 +117,15 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 		
 		//Get parallax bg speed
 		$bg_speed = get_post_meta($post_id, 'mp_stacks_parallax_bg_speed', true);
-		$bg_speed = empty( $bg_speed ) ? '.1' : $bg_speed;
+		$bg_speed = empty( $bg_speed ) ? '.3' : abs($bg_speed-101)/100;
 		
 		//Get parallax m1 speed
 		$m1_speed = get_post_meta($post_id, 'mp_stacks_parallax_m1_speed', true);
-		$m1_speed = empty( $m1_speed ) ? '1' : $m1_speed;
+		$m1_speed = empty( $m1_speed ) ? '1' : abs($m1_speed-101)/100;
 		
 		//Get parallax m2 speed
 		$m2_speed = get_post_meta($post_id, 'mp_stacks_parallax_m2_speed', true);
-		$m2_speed = empty( $m2_speed ) ? '1' : $m2_speed;
+		$m2_speed = empty( $m2_speed ) ? '1' : abs($m2_speed-101)/100;
 		
 		//Add bg speed attribute
 		$attribute_output .= ' mp_brick_parallax_bg_speed="' . $bg_speed . '" ';

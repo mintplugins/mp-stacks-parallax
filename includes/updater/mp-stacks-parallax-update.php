@@ -25,7 +25,7 @@
 			'software_name' => 'MP Stacks Parallax', //<- The exact name of this Plugin. Make sure it matches the title in your mp_stacks-parallax, parallax, and the WP.org stacks-parallax
 			'software_api_url' => 'http://moveplugins.com',//The URL where Parallax and mp_stacks-parallax are installed and checked
 			'software_filename' => 'mp-stacks-parallax.php',
-			'software_licensed' => false, //<-Boolean
+			'software_licensed' => true, //<-Boolean
 		);
 		
 		//Since this is a plugin, call the Plugin Updater class

@@ -45,33 +45,30 @@ function mp_stacks_parallax_create_meta_box(){
 		array(
 			'field_id'  => 'mp_stacks_parallax_bg_height',
 			'field_title'  =>  __('Parallax Background Height','mp_stacks_parallax' ),
-			'field_description'  => __( 'Recommended: Make this at least twice the height of your brick.','mp_stacks_parallax' ),
+			'field_description'  => __( '<br />Recommended: Make this twice the min-height of your brick. ','mp_stacks_parallax' ),
 			'field_value'  => '',
 			'field_type'  => 'number',
 		),
 		array(
 			'field_id'  => 'mp_stacks_parallax_bg_speed',
 			'field_title'  =>  __('Parallax Background Speed','mp_stacks_parallax' ),
-			'field_description'  => __( 'Select the speed at which the background should move.','mp_stacks_parallax' ),
-			'field_value'  => '',
-			'field_type'  => 'select',
-			'field_select_values'  => array( '.1' => 'Fast', '.5' => 'Medium', '.9' => 'Slow', '1' => 'None' ),
+			'field_description'  => __( 'Select the speed at which the background should move.<br /><br />Slowest to Fastest','mp_stacks_parallax' ),
+			'field_value'  => '30',
+			'field_type'  => 'input_range',
 		),
 		array(
 			'field_id'  => 'mp_stacks_parallax_m1_speed',
 			'field_title'  =>  __('Parallax Media Type 1\'s Speed','mp_stacks_parallax' ),
-			'field_description'  => __( 'Select the speed at which Media Type 1 should move.','mp_stacks_parallax' ),
-			'field_value'  => '',
-			'field_type'  => 'select',
-			'field_select_values'  => array( '.1' => 'Fast', '.5' => 'Medium', '.9' => 'Slow', '1' => 'None' ),
+			'field_description'  => __( 'Select the speed at which Media Type 1 should move.<br /><br />Slowest to Fastest','mp_stacks_parallax' ),
+			'field_value'  => '1',
+			'field_type'  => 'input_range',
 		),
 		array(
 			'field_id'  => 'mp_stacks_parallax_m2_speed',
 			'field_title'  =>  __('Parallax Media Type 2\'s Speed','mp_stacks_parallax' ),
-			'field_description'  => __( 'Select the speed at which Media Type 2 should move.','mp_stacks_parallax' ),
-			'field_value'  => '',
-			'field_type'  => 'select',
-			'field_select_values'  => array( '.1' => 'Fast', '.5' => 'Medium', '.9' => 'Slow', '1' => 'None' ),
+			'field_description'  => __( 'Select the speed at which Media Type 2 should move.<br /><br />Slowest to Fastest','mp_stacks_parallax' ),
+			'field_value'  => '1',
+			'field_type'  => 'input_range',
 		)
 	);
 	
