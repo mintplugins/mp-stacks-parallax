@@ -84,9 +84,10 @@ function mp_stacks_parallax_brick_bg_css( $css_output, $post_id ){
 		
 		//Get parallax bg size
 		$brick_bg_height = get_post_meta($post_id, 'mp_stacks_parallax_bg_height', true);
+		$brick_bg_height = empty($brick_bg_height) ? '200%' : $brick_bg_height . 'px';
 		
 		//Add style lines to css output
-		$css_output .= 'height: ' . $brick_bg_height . 'px;';
+		$css_output .= 'height: ' . $brick_bg_height . ';';
 		
 	}
 			
