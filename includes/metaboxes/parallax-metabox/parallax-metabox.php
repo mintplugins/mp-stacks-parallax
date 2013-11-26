@@ -29,7 +29,7 @@ function mp_stacks_parallax_create_meta_box(){
 		'metabox_title' => __( 'Parallax Settings', 'mp_stacks'), 
 		'metabox_posttype' => 'mp_brick', 
 		'metabox_context' => 'side', 
-		'metabox_priority' => 'default' 
+		'metabox_priority' => 'low' 
 	);
 	
 	

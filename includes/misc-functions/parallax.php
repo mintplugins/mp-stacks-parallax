@@ -25,10 +25,7 @@
 function mp_stacks_parallax_scripts(){
 	
 	//Scripts
-	wp_enqueue_script( 'iscroll5', plugins_url( '/js/iScroll5.js', dirname( __FILE__ ) ), array( 'jquery' ) );
-	
-	//Scripts
-	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery', 'iscroll5' ) );
+	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery' ) );
 	
 	//css
 	wp_enqueue_style( 'mp_stacks_parallax_css', plugins_url( '/css/style.css', dirname( __FILE__ ) ), array( 'mp_stacks_style' ) );
