@@ -31,14 +31,21 @@ function mp_parallax($){
 						
 			// Move the background			
 			mp_brick_bg.css( '-webkit-transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
+			mp_brick_bg.css( 'transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
 			
 			//First Media Type
 			mp_brick.find( '.mp-brick-left' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_media_type_1 + 'px, 0px)' );
+			mp_brick.find( '.mp-brick-left' ).css( 'transform', 'translate3d(0px, ' + yPos_media_type_1 + 'px, 0px)' );
+			
 			mp_brick.find( '.mp-brick-centered-first').css( '-webkit-transform', 'translate3d(0px, ' + yPos_media_type_1 + 'px, 0px)' );
+			mp_brick.find( '.mp-brick-centered-first').css( 'transform', 'translate3d(0px, ' + yPos_media_type_1 + 'px, 0px)' );
 			
 			//Second Media Type
 			mp_brick.find( '.mp-brick-right' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_media_type_2 + 'px, 0px)' );
+			mp_brick.find( '.mp-brick-right' ).css( 'transform', 'translate3d(0px, ' + yPos_media_type_2 + 'px, 0px)' );
+			
 			mp_brick.find( '.mp-brick-centered-second').css( '-webkit-transform', 'translate3d(0px, ' + yPos_media_type_2 + 'px, 0px)' );
+			mp_brick.find( '.mp-brick-centered-second').css( 'transform', 'translate3d(0px, ' + yPos_media_type_2 + 'px, 0px)' );
 						
 		}
 	}); 
