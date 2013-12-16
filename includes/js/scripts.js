@@ -73,6 +73,11 @@ jQuery(document).ready(function($){
 		$(window).scroll(function() {
 			mp_parallax($);
 		});
+		
+		//Run on Resize
+		$( window ).resize(function() {
+			mp_parallax($);
+		});
 	}
 	
 }); 
