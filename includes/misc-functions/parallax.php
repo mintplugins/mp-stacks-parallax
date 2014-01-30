@@ -118,21 +118,21 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 		$bg_speed = empty( $bg_speed ) ? '.3' : abs($bg_speed-101)/100;
 		
 		//Get parallax m1 speed
-		$m1_speed = get_post_meta($post_id, 'mp_stacks_parallax_m1_speed', true);
+		$m1_speed = get_post_meta($post_id, 'mp_stacks_parallax_c1_speed', true);
 		$m1_speed = empty( $m1_speed ) ? '1' : abs($m1_speed-101)/100;
 		
 		//Get parallax m2 speed
-		$m2_speed = get_post_meta($post_id, 'mp_stacks_parallax_m2_speed', true);
+		$m2_speed = get_post_meta($post_id, 'mp_stacks_parallax_c2_speed', true);
 		$m2_speed = empty( $m2_speed ) ? '1' : abs($m2_speed-101)/100;
 		
 		//Add bg speed attribute
 		$attribute_output .= ' mp_brick_parallax_bg_speed="' . $bg_speed . '" ';
 		
 		//Add m1 speed attribute
-		$attribute_output .= ' mp_brick_parallax_m1_speed="' . $m1_speed . '" ';
+		$attribute_output .= ' mp_brick_parallax_c1_speed="' . $m1_speed . '" ';
 		
 		//Add m2 speed attribute
-		$attribute_output .= ' mp_brick_parallax_m2_speed="' . $m2_speed . '" ';
+		$attribute_output .= ' mp_brick_parallax_c2_speed="' . $m2_speed . '" ';
 		
 	}
 			
