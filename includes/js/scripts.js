@@ -1,5 +1,5 @@
 function mp_parallax($){
-				
+					
 	$('.mp-brick-parallax').each(function(){
 		
 		//Window Height
@@ -73,11 +73,22 @@ jQuery(document).ready(function($){
 		$(window).scroll(function() {
 			mp_parallax($);
 		});
-		
-		//Run on Resize
-		$( window ).resize(function() {
-			mp_parallax($);
+				
+		//Function that waits for resize end - so we don't re-process while re-sizing
+		var mp_stacks_parallax_resize_timer;
+		$(window).resize(function(){
+			clearTimeout(mp_stacks_parallax_resize_timer);
+			mp_stacks_parallax_resize_timer = setTimeout(mp_stacks_parallax_resize_end, 2);
 		});
+		
+		//Custom Event which fires after resize has ended
+		function mp_stacks_parallax_resize_end(){
+			
+			mp_parallax($);
+			
+		}
+									
+						
 	}
 	
 }); 
