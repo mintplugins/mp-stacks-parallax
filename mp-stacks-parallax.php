@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Parallax
 Plugin URI: http://moveplugins.com
 Description: This is an addon to the MP Stacks plugin which makes your stacks scroll using a parallax effect
-Version: beta1.0.1.1
+Version: beta1.0.1.2
 Author: Move Plugins
 Author URI: http://moveplugins.com
 Text Domain: mp_stacks_parallax

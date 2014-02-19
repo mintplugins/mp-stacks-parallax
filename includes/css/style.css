@@ -1,3 +1,6 @@
 .mp-brick-parallax{
 	visibility:hidden;
 }
+.mp-fixed-parallax:after{
+	background-attachment:fixed;
+}

@@ -22,31 +22,56 @@ function mp_parallax($){
 				
 		//If this brick is in view
 		if ( mp_brick_y < windowHeight && mp_brick_y > ( 0 - mp_brick_height ) ){
+			
+			//If Background speed is less than .4
+			if (bg_speed < .2){
+				
+				//Give the background no movement at all
+				mp_brick_bg.addClass('mp-fixed-parallax');	
+			}
+			//Otherwise move it based on parent's speed
+			else{
 											
-			var yPos_bg = -mp_brick_y+(mp_brick_y*bg_speed); //bg_speed = .1 to 1 ... 1 is stationary (no movement)
+				var yPos_bg = -mp_brick_y+(mp_brick_y*bg_speed); //bg_speed = .09 to .1 ... .01 is stationary (no movement)
+				
+				// Move the background			
+				mp_brick_bg.css( '-webkit-transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
+				mp_brick_bg.css( 'transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
+			}
 			
-			var yPos_content_type_1 = -mp_brick_y+(mp_brick_y*m1_speed);
+			//If Content-Type 1's speed is less than .3
+			if (m1_speed < .2){
+				
+				//Give the ct no movement at all
+				var yPos_content_type_1 = -mp_brick_y;
+			}
+			//Otherwise move it based on parent's speed
+			else{
+											
+				var yPos_content_type_1 = -mp_brick_y+(mp_brick_y*m1_speed);
+				
+			}
 			
-			var yPos_content_type_2 = -mp_brick_y+(mp_brick_y*m2_speed);
-						
-			// Move the background			
-			mp_brick_bg.css( '-webkit-transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
-			mp_brick_bg.css( 'transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
+			//Move First Media Type
+			mp_brick.find( '.mp-brick-first-content-type' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
+			mp_brick.find( '.mp-brick-first-content-type' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
 			
-			//First Media Type
-			mp_brick.find( '.mp-brick-left' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
-			mp_brick.find( '.mp-brick-left' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
+			//If Content-Type 2's speed is less than .4
+			if (m1_speed < .2){
+				
+				//Give the ct no movement at all
+				var yPos_content_type_1 = -mp_brick_y;
+			}
+			//Otherwise move it based on parent's speed
+			else{
+											
+				var yPos_content_type_2 = -mp_brick_y+(mp_brick_y*m2_speed);
+				
+			}	
 			
-			mp_brick.find( '.mp-brick-centered-first').css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
-			mp_brick.find( '.mp-brick-centered-first').css( 'transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
-			
-			//Second Media Type
-			mp_brick.find( '.mp-brick-right' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
-			mp_brick.find( '.mp-brick-right' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
-			
-			mp_brick.find( '.mp-brick-centered-second').css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
-			mp_brick.find( '.mp-brick-centered-second').css( 'transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
-						
+			//Move Second Media Type
+			mp_brick.find( '.mp-brick-second-content-type' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
+			mp_brick.find( '.mp-brick-second-content-type' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );					
 		}
 	}); 
 }
