@@ -27,55 +27,67 @@ function mp_parallax($){
 		//If this brick is in view
 		if ( mp_brick_y < windowHeight && mp_brick_y > ( 0 - mp_brick_height ) ){
 			
-			//If Background speed is less than .4
-			if (bg_speed < .2){
-				
-				//Give the background no movement at all
-				mp_brick_bg.addClass('mp-fixed-parallax');	
-			}
-			//Otherwise move it based on parent's speed
-			else{
-											
-				var yPos_bg = -mp_brick_y+(mp_brick_y*bg_speed); //bg_speed = .09 to .1 ... .01 is stationary (no movement)
-				
-				// Move the background			
-				mp_brick_bg.css( '-webkit-transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
-				mp_brick_bg.css( 'transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
-			}
-			
-			//If Content-Type 1's speed is less than .2
-			if (c1_speed < .2){
-				
-				//Give the ct no movement at all
-				var yPos_content_type_1 = -mp_brick_y + c1_offset;
-			}
-			//Otherwise move it based on parent's speed
-			else{
-											
-				var yPos_content_type_1 = -mp_brick_y+(mp_brick_y*c1_speed)+c1_offset;
-				
+			//If background should have speed adjusted at all
+			if ( bg_speed < 1 ){
+				//If Background speed is less than .11
+				if (bg_speed < .11){
+					
+					//Give the background no movement at all
+					mp_brick_bg.addClass('mp-fixed-parallax');	
+				}
+				//Otherwise move it based on parent's speed
+				else{
+												
+					var yPos_bg = -mp_brick_y+(mp_brick_y*bg_speed); //bg_speed = .09 to .1 ... .01 is stationary (no movement)
+					
+					// Move the background			
+					mp_brick_bg.css( '-webkit-transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
+					mp_brick_bg.css( 'transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
+				}
 			}
 			
-			//Move First Media Type
-			mp_brick.find( '.mp-brick-first-content-type' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
-			mp_brick.find( '.mp-brick-first-content-type' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
+			//If content-type 1 should be moved at all
+			if (c1_speed < 1){
 			
-			//If Content-Type 2's speed is less than .2
-			if (c2_speed < .2){
+				//If Content-Type 1's speed is less than .11
+				if (c1_speed < .11){
+					
+					//Give the ct no movement at all
+					var yPos_content_type_1 = -mp_brick_y + c1_offset;
+			
+				}
+				//Otherwise move it based on parent's speed
+				else{
+												
+					var yPos_content_type_1 = -mp_brick_y+(mp_brick_y*c1_speed)+c1_offset;
+					
+				}
 				
-				//Give the ct no movement at all
-				var yPos_content_type_2 = -mp_brick_y+c2_offset;
+				//Move First Media Type
+				mp_brick.find( '.mp-brick-first-content-type' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
+				mp_brick.find( '.mp-brick-first-content-type' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
 			}
-			//Otherwise move it based on parent's speed
-			else{
-											
-				var yPos_content_type_2 = -mp_brick_y+(mp_brick_y*c2_speed)+c2_offset;
-				
-			}	
 			
-			//Move Second Media Type
-			mp_brick.find( '.mp-brick-second-content-type' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
-			mp_brick.find( '.mp-brick-second-content-type' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );					
+			//If Content-Type 2 should be moved at all
+			if (c2_speed < 1){
+				
+				//If Content-Type 2's speed is less than .11
+				if (c2_speed < .11){
+					
+					//Give the ct no movement at all
+					var yPos_content_type_2 = -mp_brick_y+c2_offset;
+				}
+				//Otherwise move it based on parent's speed
+				else{
+												
+					var yPos_content_type_2 = -mp_brick_y+(mp_brick_y*c2_speed)+c2_offset;
+					
+				}	
+				
+				//Move Second Media Type
+				mp_brick.find( '.mp-brick-second-content-type' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
+				mp_brick.find( '.mp-brick-second-content-type' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_2 + 'px, 0px)' );
+			}
 		}
 	}); 
 }

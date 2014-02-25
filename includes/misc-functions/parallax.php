@@ -115,7 +115,7 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 		
 		//Get parallax bg speed
 		$bg_speed = get_post_meta($post_id, 'mp_stacks_parallax_bg_speed', true);
-		$bg_speed = empty( $bg_speed ) ? '.3' : abs($bg_speed-101)/100;
+		$bg_speed = empty( $bg_speed ) ? '1' : abs($bg_speed-101)/100;
 		
 		//Get parallax c1 speed
 		$c1_speed = get_post_meta($post_id, 'mp_stacks_parallax_c1_speed', true);
@@ -127,7 +127,7 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 		
 		//Get parallax c1 offset
 		$c1_offset = get_post_meta($post_id, 'mp_stacks_parallax_c1_offset', true);
-		$c1_offset = empty( $c1_speed ) ? '0' : $c1_offset;
+		$c1_offset = empty( $c1_offset ) ? '0' : $c1_offset;
 		
 		//Get parallax c2 offset
 		$c2_offset = get_post_meta($post_id, 'mp_stacks_parallax_c2_offset', true);
