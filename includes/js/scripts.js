@@ -17,8 +17,12 @@ function mp_parallax($){
 		
 		//Speed variables
 		bg_speed = $(this).attr( 'mp_brick_parallax_bg_speed' );
-		m1_speed = $(this).attr( 'mp_brick_parallax_c1_speed' );
-		m2_speed = $(this).attr( 'mp_brick_parallax_c2_speed' );
+		c1_speed = $(this).attr( 'mp_brick_parallax_c1_speed' );
+		c2_speed = $(this).attr( 'mp_brick_parallax_c2_speed' );
+		
+		//Offset variables
+		c1_offset = parseInt($(this).attr( 'mp_brick_parallax_c1_offset' ));
+		c2_offset = parseInt($(this).attr( 'mp_brick_parallax_c2_offset' ));
 				
 		//If this brick is in view
 		if ( mp_brick_y < windowHeight && mp_brick_y > ( 0 - mp_brick_height ) ){
@@ -39,16 +43,16 @@ function mp_parallax($){
 				mp_brick_bg.css( 'transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );
 			}
 			
-			//If Content-Type 1's speed is less than .3
-			if (m1_speed < .2){
+			//If Content-Type 1's speed is less than .2
+			if (c1_speed < .2){
 				
 				//Give the ct no movement at all
-				var yPos_content_type_1 = -mp_brick_y;
+				var yPos_content_type_1 = -mp_brick_y + c1_offset;
 			}
 			//Otherwise move it based on parent's speed
 			else{
 											
-				var yPos_content_type_1 = -mp_brick_y+(mp_brick_y*m1_speed);
+				var yPos_content_type_1 = -mp_brick_y+(mp_brick_y*c1_speed)+c1_offset;
 				
 			}
 			
@@ -56,16 +60,16 @@ function mp_parallax($){
 			mp_brick.find( '.mp-brick-first-content-type' ).css( '-webkit-transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
 			mp_brick.find( '.mp-brick-first-content-type' ).css( 'transform', 'translate3d(0px, ' + yPos_content_type_1 + 'px, 0px)' );
 			
-			//If Content-Type 2's speed is less than .4
-			if (m1_speed < .2){
+			//If Content-Type 2's speed is less than .2
+			if (c2_speed < .2){
 				
 				//Give the ct no movement at all
-				var yPos_content_type_1 = -mp_brick_y;
+				var yPos_content_type_2 = -mp_brick_y+c2_offset;
 			}
 			//Otherwise move it based on parent's speed
 			else{
 											
-				var yPos_content_type_2 = -mp_brick_y+(mp_brick_y*m2_speed);
+				var yPos_content_type_2 = -mp_brick_y+(mp_brick_y*c2_speed)+c2_offset;
 				
 			}	
 			

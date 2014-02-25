@@ -117,22 +117,36 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 		$bg_speed = get_post_meta($post_id, 'mp_stacks_parallax_bg_speed', true);
 		$bg_speed = empty( $bg_speed ) ? '.3' : abs($bg_speed-101)/100;
 		
-		//Get parallax m1 speed
-		$m1_speed = get_post_meta($post_id, 'mp_stacks_parallax_c1_speed', true);
-		$m1_speed = empty( $m1_speed ) ? '1' : abs($m1_speed-101)/100;
+		//Get parallax c1 speed
+		$c1_speed = get_post_meta($post_id, 'mp_stacks_parallax_c1_speed', true);
+		$c1_speed = empty( $c1_speed ) ? '1' : abs($c1_speed-101)/100;
 		
-		//Get parallax m2 speed
-		$m2_speed = get_post_meta($post_id, 'mp_stacks_parallax_c2_speed', true);
-		$m2_speed = empty( $m2_speed ) ? '1' : abs($m2_speed-101)/100;
+		//Get parallax c2 speed
+		$c2_speed = get_post_meta($post_id, 'mp_stacks_parallax_c2_speed', true);
+		$c2_speed = empty( $c2_speed ) ? '1' : abs($c2_speed-101)/100;
+		
+		//Get parallax c1 offset
+		$c1_offset = get_post_meta($post_id, 'mp_stacks_parallax_c1_offset', true);
+		$c1_offset = empty( $c1_speed ) ? '0' : $c1_offset;
+		
+		//Get parallax c2 offset
+		$c2_offset = get_post_meta($post_id, 'mp_stacks_parallax_c2_offset', true);
+		$c2_offset = empty( $c2_offset ) ? '0' : $c2_offset;
 		
 		//Add bg speed attribute
 		$attribute_output .= ' mp_brick_parallax_bg_speed="' . $bg_speed . '" ';
 		
-		//Add m1 speed attribute
-		$attribute_output .= ' mp_brick_parallax_c1_speed="' . $m1_speed . '" ';
+		//Add c1 speed attribute
+		$attribute_output .= ' mp_brick_parallax_c1_speed="' . $c1_speed . '" ';
 		
-		//Add m2 speed attribute
-		$attribute_output .= ' mp_brick_parallax_c2_speed="' . $m2_speed . '" ';
+		//Add c2 speed attribute
+		$attribute_output .= ' mp_brick_parallax_c2_speed="' . $c2_speed . '" ';
+		
+		//Add c1 offset attribute
+		$attribute_output .= ' mp_brick_parallax_c1_offset="' . $c1_offset . '" ';
+		
+		//Add c2 offset attribute
+		$attribute_output .= ' mp_brick_parallax_c2_offset="' . $c2_offset . '" ';
 		
 	}
 			
@@ -141,6 +155,64 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 	
 }
 add_filter( 'mp_stacks_extra_brick_attributes', 'mp_stacks_parallax_brick_attributes', 10, 2);
+
+/**
+ * Filter Function which returns offset settings for a brick background.
+ * We use it here to control the speed of each section in a brick
+ *
+ * @since    1.0.0
+ * @link     http://moveplugins.com/doc/
+ * @see      function_name()
+ * @param    string $background_position See link for description.
+ * @param    int $post_id See link for description.
+ * @return   void
+ */
+function mp_stacks_parallax_background_offset_css( $background_css_output, $post_id ){
+	
+	//Get Background Offset setting
+	$background_offset = get_post_meta( $post_id, 'mp_stacks_parallax_bg_offset', true );	
+	
+	//If parallax is on for this brick
+	if (!empty( $background_offset ) ){
+		
+		$background_css_output .= 'background-position-y:' . $background_offset . ';';
+		
+	}
+			
+	//Return Attribute Output
+	return $background_css_output;
+	
+}
+add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
+
+/**
+ * Filter Function which returns offset settings for a brick content type 1.
+ * We use it here to control the speed of each section in a brick
+ *
+ * @since    1.0.0
+ * @link     http://moveplugins.com/doc/
+ * @see      function_name()
+ * @param    string $background_position See link for description.
+ * @param    int $post_id See link for description.
+ * @return   void
+ */
+function mp_stacks_parallax_c1_offset_css( $background_css_output, $post_id ){
+	
+	//Get Background Offset setting
+	$background_offset = get_post_meta( $post_id, 'mp_stacks_parallax_bg_offset', true );	
+	
+	//If parallax is on for this brick
+	if (!empty( $background_offset ) ){
+		
+		$background_css_output .= 'background-position-y:' . $background_offset . ';';
+		
+	}
+			
+	//Return Attribute Output
+	return $background_css_output;
+	
+}
+add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
 
 
 

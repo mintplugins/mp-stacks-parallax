@@ -38,38 +38,81 @@ function mp_stacks_parallax_create_meta_box(){
 		array(
 			'field_id'  => 'mp_stacks_parallax_on',
 			'field_title'  =>  __('Turn Parallax On?','mp_stacks_parallax' ),
-			'field_description'  => __( 'Check this if you want to use Parallax for this brick','mp_stacks_parallax' ),
+			'field_description'  => __( 'Check this if you want to use Parallax for this brick.','mp_stacks_parallax' ),
 			'field_value'  => '',
 			'field_type'  => 'checkbox',
 		),
 		array(
 			'field_id'  => 'mp_stacks_parallax_bg_height',
 			'field_title'  =>  __('Parallax Background Height','mp_stacks_parallax' ),
-			'field_description'  => __( '<br />Recommended: Make this twice the min-height of your brick. ','mp_stacks_parallax' ),
+			'field_description'  => __( '<br />Recommended: Make this twice the height of your brick. ','mp_stacks_parallax' ),
 			'field_value'  => '',
 			'field_type'  => 'number',
 		),
 		array(
+			'field_id'  => 'mp_stacks_parallax_speed_settings',
+			'field_title'  =>  __('Speed Settings','mp_stacks_parallax' ),
+			'field_description'  => __( '<br />Click to open the speed settings dialog. ','mp_stacks_parallax' ),
+			'field_value'  => '',
+			'field_type'  => 'showhider',
+		),
+		array(
 			'field_id'  => 'mp_stacks_parallax_bg_speed',
-			'field_title'  =>  __('Parallax Background Speed','mp_stacks_parallax' ),
+			'field_title'  =>  __('Background Speed','mp_stacks_parallax' ),
 			'field_description'  => __( 'Select the speed at which the background should move.<br /><br />Slowest to Fastest','mp_stacks_parallax' ),
 			'field_value'  => '30',
 			'field_type'  => 'input_range',
+			'field_showhider'  => 'mp_stacks_parallax_speed_settings',
 		),
 		array(
 			'field_id'  => 'mp_stacks_parallax_c1_speed',
-			'field_title'  =>  __('Parallax Content-Type 1\'s Speed','mp_stacks_parallax' ),
+			'field_title'  =>  __('Content-Type 1\'s Speed','mp_stacks_parallax' ),
 			'field_description'  => __( 'Select the speed at which Media Type 1 should move.<br /><br />Slowest to Fastest','mp_stacks_parallax' ),
 			'field_value'  => '1',
 			'field_type'  => 'input_range',
+			'field_showhider'  => 'mp_stacks_parallax_speed_settings',
 		),
 		array(
 			'field_id'  => 'mp_stacks_parallax_c2_speed',
-			'field_title'  =>  __('Parallax Content-Type 2\'s Speed','mp_stacks_parallax' ),
+			'field_title'  =>  __('Content-Type 2\'s Speed','mp_stacks_parallax' ),
 			'field_description'  => __( 'Select the speed at which Media Type 2 should move.<br /><br />Slowest to Fastest','mp_stacks_parallax' ),
 			'field_value'  => '1',
 			'field_type'  => 'input_range',
+			'field_showhider'  => 'mp_stacks_parallax_speed_settings',
+		),
+		array(
+			'field_id'  => 'mp_stacks_parallax_offset_settings',
+			'field_title'  =>  __('Offset Settings','mp_stacks_parallax' ),
+			'field_description'  => '',
+			'field_value'  => '',
+			'field_type'  => 'showhider',
+		),
+		array(
+			'field_id'  => 'mp_stacks_parallax_bg_offset',
+			'field_title'  =>  __('Background Offset','mp_stacks_parallax' ),
+			'field_description'  => __( 'Enter the number of pixels to offset.','mp_stacks_parallax' ),
+			'field_value'  => '0',
+			'field_type'  => 'number',
+			'field_showhider'  => 'mp_stacks_parallax_offset_settings',
+		),
+		array(
+			'field_id'  => 'mp_stacks_parallax_c1_offset',
+			'field_title'  =>  __('Content-Type 2\'s Offset','mp_stacks_parallax' ),
+			'field_description'  => __( 'Enter the number of pixels to offset.','mp_stacks_parallax' ),
+			'field_value'  => '0',
+			'field_type'  => 'number',
+			'field_showhider'  => 'mp_stacks_parallax_offset_settings',
+		),
+		array(
+			'field_id'  => 'mp_stacks_parallax_c2_offset',
+			'field_title'  =>  __('Content-Type 2\'s Offset','mp_stacks_parallax' ),
+			'field_description'  => __( 'Enter the number of pixels to offset.','mp_stacks_parallax' ),
+			'field_value'  => '0',
+			'field_type'  => 'number',
+			'field_showhider'  => 'mp_stacks_parallax_offset_settings',
 		)
+		
+		
 	);
 	
 	
