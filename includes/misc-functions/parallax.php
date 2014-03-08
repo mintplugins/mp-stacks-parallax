@@ -175,7 +175,7 @@ function mp_stacks_parallax_background_offset_css( $background_css_output, $post
 	//If parallax is on for this brick
 	if (!empty( $background_offset ) ){
 		
-		$background_css_output .= 'background-position-y:' . $background_offset . ';';
+		$background_css_output .= 'background-position-y:' . $background_offset . 'px;';
 		
 	}
 			
