@@ -21,6 +21,7 @@ function mp_parallax($){
 		c2_speed = $(this).attr( 'mp_brick_parallax_c2_speed' );
 		
 		//Offset variables
+		bg_offset = parseInt($(this).attr( 'mp_brick_parallax_bg_offset' ));
 		c1_offset = parseInt($(this).attr( 'mp_brick_parallax_c1_offset' ));
 		c2_offset = parseInt($(this).attr( 'mp_brick_parallax_c2_offset' ));
 				
@@ -38,7 +39,7 @@ function mp_parallax($){
 				//Otherwise move it based on parent's speed
 				else{
 												
-					var yPos_bg = -mp_brick_y+(mp_brick_y*bg_speed); //bg_speed = .09 to .1 ... .01 is stationary (no movement)
+					var yPos_bg = -mp_brick_y+(mp_brick_y*bg_speed) + bg_offset; //bg_speed = .09 to .1 ... .01 is stationary (no movement)
 					
 					// Move the background			
 					mp_brick_bg.css( '-webkit-transform', 'translate3d(0px, ' + yPos_bg + 'px, 0px)' );

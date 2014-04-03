@@ -125,6 +125,10 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 		$c2_speed = get_post_meta($post_id, 'mp_stacks_parallax_c2_speed', true);
 		$c2_speed = empty( $c2_speed ) ? '1' : abs($c2_speed-101)/100;
 		
+		//Get Background Offset setting
+		$bg_offset = get_post_meta( $post_id, 'mp_stacks_parallax_bg_offset', true );	
+		$bg_offset = empty( $bg_offset ) ? '0' : $bg_offset;
+	
 		//Get parallax c1 offset
 		$c1_offset = get_post_meta($post_id, 'mp_stacks_parallax_c1_offset', true);
 		$c1_offset = empty( $c1_offset ) ? '0' : $c1_offset;
@@ -134,6 +138,12 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 		$c2_offset = empty( $c2_offset ) ? '0' : $c2_offset;
 		
 		//Add bg speed attribute
+		$attribute_output .= ' mp_brick_parallax_bg_speed="' . $bg_speed . '" ';
+		
+		//Add bg speed attribute
+		$attribute_output .= ' mp_brick_parallax_bg_offset="' . $bg_offset . '" ';
+		
+		//Add bg offset attribute
 		$attribute_output .= ' mp_brick_parallax_bg_speed="' . $bg_speed . '" ';
 		
 		//Add c1 speed attribute
@@ -183,7 +193,7 @@ function mp_stacks_parallax_background_offset_css( $background_css_output, $post
 	return $background_css_output;
 	
 }
-add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
+//add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
 
 /**
  * Filter Function which returns offset settings for a brick content type 1.
@@ -212,7 +222,7 @@ function mp_stacks_parallax_c1_offset_css( $background_css_output, $post_id ){
 	return $background_css_output;
 	
 }
-add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
+//add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
 
 
 
