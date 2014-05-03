@@ -25,13 +25,13 @@
 function mp_stacks_parallax_scripts(){
 		
 	//Scripts
-	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery' ) );
+	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery' ), false, true );
 	
 	//css
 	wp_enqueue_style( 'mp_stacks_parallax_css', plugins_url( '/css/style.css', dirname( __FILE__ ) ), array( 'mp_stacks_style' ) );
 	
 }
-add_action( 'mp_stacks_enqueue_scripts', 'mp_stacks_parallax_scripts');
+add_action( 'wp_enqueue_scripts', 'mp_stacks_parallax_scripts');
 
 /**
  * Filter Function which returns class name for a brick
