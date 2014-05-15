@@ -2,13 +2,13 @@
 /**
  * Parallax Scripts and Functions
  *
- * @link http://moveplugins.com/doc/
+ * @link http://mintplugins.com/doc/
  * @since 1.0.0
  *
  * @package    Mp Stacks Parallax
  * @subpackage Functions
  *
- * @copyright   Copyright (c) 2013, Move Plugins
+ * @copyright   Copyright (c) 2014, Mint Plugins
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author      Philip Johnston
  */
@@ -17,7 +17,7 @@
  * Enqueue Parallax scripts
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      wp_enqueue_script()
  * @see      wp_enqueue_style()
  * @return   void
@@ -37,7 +37,7 @@ add_action( 'wp_enqueue_scripts', 'mp_stacks_parallax_scripts');
  * Filter Function which returns class name for a brick
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @param    string $classes See link for description.
  * @param    string $post_id See link for description.
  * @return   void
@@ -65,7 +65,7 @@ add_filter( 'mp_stacks_brick_class', 'mp_stacks_parallax_brick_class', 10, 2);
  * Filter Function which returns the css style lines for a brick background
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      function_name()
  * @param    string $css_output See link for description.
  * @param    string $post_id See link for description.
@@ -99,7 +99,7 @@ add_filter( 'mp_brick_bg_css', 'mp_stacks_parallax_brick_bg_css', 10, 2);
  * We use it here to control the speed of each section in a brick
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      function_name()
  * @param    string $attribute_output See link for description.
  * @param    string $post_id See link for description.
@@ -171,7 +171,7 @@ add_filter( 'mp_stacks_extra_brick_attributes', 'mp_stacks_parallax_brick_attrib
  * We use it here to control the speed of each section in a brick
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      function_name()
  * @param    string $background_position See link for description.
  * @param    int $post_id See link for description.
@@ -200,7 +200,7 @@ function mp_stacks_parallax_background_offset_css( $background_css_output, $post
  * We use it here to control the speed of each section in a brick
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      function_name()
  * @param    string $background_position See link for description.
  * @param    int $post_id See link for description.

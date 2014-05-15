@@ -2,13 +2,13 @@
 /**
  * This page contains the functions to make a metabox for Parallax
  *
- * @link http://moveplugins.com/doc/metabox-class/
+ * @link http://mintplugins.com/doc/metabox-class/
  * @since 1.0.0
  *
  * @package    MP Stacks Parallax
  * @subpackage Functions
  *
- * @copyright   Copyright (c) 2013, Move Plugins
+ * @copyright   Copyright (c) 2014, Mint Plugins
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author      Philip Johnston
  */
@@ -17,7 +17,7 @@
  * Function which creates new Meta Box
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/metabox-class/
+ * @link     http://mintplugins.com/doc/metabox-class/
  * @see      MP_CORE_Metabox
  * @return   void
  */
@@ -118,6 +118,10 @@ function mp_stacks_parallax_create_meta_box(){
 	
 	//Custom filter to allow for add-on plugins to hook in their own data for add_meta_box array
 	$mp_stacks_parallax_add_meta_box = has_filter('mp_stacks_parallax_meta_box_array') ? apply_filters( 'mp_stacks_parallax_meta_box_array', $mp_stacks_parallax_add_meta_box) : $mp_stacks_parallax_add_meta_box;
+	
+	//Globalize the and populate mp_stacks_features_items_array (do this before filter hooks are run)
+	global $global_mp_stacks_parallax_items_array;
+	$global_mp_stacks_parallax_items_array = $mp_stacks_parallax_items_array;
 	
 	//Custom filter to allow for add on plugins to hook in their own extra fields 
 	$mp_stacks_parallax_items_array = has_filter('mp_stacks_parallax_items_array') ? apply_filters( 'mp_stacks_parallax_items_array', $mp_stacks_parallax_items_array) : $mp_stacks_parallax_items_array;

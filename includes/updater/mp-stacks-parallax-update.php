@@ -7,7 +7,7 @@
  * @package    MP Stacks Parallax
  * @subpackage Functions
  *
- * @copyright  Copyright (c) 2013, Move Plugins
+ * @copyright  Copyright (c) 2014, Mint Plugins
  * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author     Philip Johnston
  */
@@ -23,7 +23,7 @@
 	function mp_stacks_parallax_update() {
 		$args = array(
 			'software_name' => 'MP Stacks Parallax', //<- The exact name of this Plugin. Make sure it matches the title in your mp_stacks-parallax, parallax, and the WP.org stacks-parallax
-			'software_api_url' => 'http://moveplugins.com',//The URL where Parallax and mp_stacks-parallax are installed and checked
+			'software_api_url' => 'http://mintplugins.com',//The URL where Parallax and mp_stacks-parallax are installed and checked
 			'software_filename' => 'mp-stacks-parallax.php',
 			'software_licensed' => true, //<-Boolean
 		);
