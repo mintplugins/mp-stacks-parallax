@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Parallax
 Plugin URI: http://mintplugins.com
 Description: This is an addon to the MP Stacks plugin which makes your stacks scroll using a parallax effect
-Version: 1.0.0.0
+Version: 1.0.0.1
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_stacks_parallax
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_PARALLAX_VERSION' ) )
-	define( 'MP_STACKS_PARALLAX_VERSION', '1.0.0.0' );
+	define( 'MP_STACKS_PARALLAX_VERSION', '1.0.0.1' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_PARALLAX_PLUGIN_URL' ) )
@@ -125,7 +125,7 @@ function mp_stacks_parallax_include_files(){
 	elseif(!function_exists('mp_stacks_textdomain')){
 		
 		/**
-		 * Check if wp_html_in_post in installed
+		 * Check if mp_stacks in installed
 		 */
 		include_once( MP_STACKS_PARALLAX_PLUGIN_DIR . 'includes/plugin-checker/included-plugins/mp-stacks.php' );
 	}
@@ -150,10 +150,14 @@ function mp_stacks_parallax_include_files(){
 		require( MP_STACKS_PARALLAX_PLUGIN_DIR . 'includes/metaboxes/parallax-metabox/parallax-metabox.php' );
 		
 		/**
-		 * Functions which assist with the creation of templates using this add-on
+		 * Add this add on to the list of Active MP Stacks Add Ons
 		 */
 		if ( function_exists('mp_stacks_developer_textdomain') ){
-			require( MP_STACKS_PARALLAX_PLUGIN_DIR . 'includes/misc-functions/stack-template-functions.php' );
+			function mp_stacks_parallax_add_active( $required_add_ons ){
+				$required_add_ons['mp_stacks_parallax'] = 'MP Stacks + Parallax';
+				return $required_add_ons;
+			}
+			add_filter( 'mp_stacks_active_add_ons', 'mp_stacks_parallax_add_active' );
 		}
 		
 	}

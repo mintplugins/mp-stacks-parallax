@@ -23,7 +23,12 @@
  * @return   void
  */
 function mp_stacks_parallax_scripts(){
-		
+	
+	if ( mp_core_is_iphone() || mp_core_is_android() ){
+		//We don't need this on mobile devices because it doesn't work properly
+		return;
+	}
+
 	//Scripts
 	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery' ), false, true );
 	
@@ -73,6 +78,11 @@ add_filter( 'mp_stacks_brick_class', 'mp_stacks_parallax_brick_class', 10, 2);
  */
 function mp_stacks_parallax_brick_bg_css( $css_output, $post_id ){
 	
+	if ( mp_core_is_iphone() || mp_core_is_android() ){
+		//We don't need this on mobile devices because it doesn't work properly
+		return $css_output;
+	}
+	
 	//Get Parallax On setting
 	$parallax_on = get_post_meta( $post_id, 'mp_stacks_parallax_on', true );	
 	
@@ -87,6 +97,7 @@ function mp_stacks_parallax_brick_bg_css( $css_output, $post_id ){
 		$css_output .= 'height: ' . $brick_bg_height . ';';
 		
 	}
+	
 			
 	//Return CSS Output
 	return $css_output;
@@ -106,6 +117,11 @@ add_filter( 'mp_brick_bg_css', 'mp_stacks_parallax_brick_bg_css', 10, 2);
  * @return   void
  */
 function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
+	
+	if ( mp_core_is_iphone() || mp_core_is_android() ){
+		//We don't need this on mobile devices because it doesn't work properly
+		return $attribute_output;
+	}
 	
 	//Get Parallax On setting
 	$parallax_on = get_post_meta( $post_id, 'mp_stacks_parallax_on', true );	
@@ -165,64 +181,3 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 	
 }
 add_filter( 'mp_stacks_extra_brick_attributes', 'mp_stacks_parallax_brick_attributes', 10, 2);
-
-/**
- * Filter Function which returns offset settings for a brick background.
- * We use it here to control the speed of each section in a brick
- *
- * @since    1.0.0
- * @link     http://mintplugins.com/doc/
- * @see      function_name()
- * @param    string $background_position See link for description.
- * @param    int $post_id See link for description.
- * @return   void
- */
-function mp_stacks_parallax_background_offset_css( $background_css_output, $post_id ){
-	
-	//Get Background Offset setting
-	$background_offset = get_post_meta( $post_id, 'mp_stacks_parallax_bg_offset', true );	
-	
-	//If parallax is on for this brick
-	if (!empty( $background_offset ) ){
-		
-		$background_css_output .= 'background-position-y:' . $background_offset . 'px;';
-		
-	}
-			
-	//Return Attribute Output
-	return $background_css_output;
-	
-}
-//add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
-
-/**
- * Filter Function which returns offset settings for a brick content type 1.
- * We use it here to control the speed of each section in a brick
- *
- * @since    1.0.0
- * @link     http://mintplugins.com/doc/
- * @see      function_name()
- * @param    string $background_position See link for description.
- * @param    int $post_id See link for description.
- * @return   void
- */
-function mp_stacks_parallax_c1_offset_css( $background_css_output, $post_id ){
-	
-	//Get Background Offset setting
-	$background_offset = get_post_meta( $post_id, 'mp_stacks_parallax_bg_offset', true );	
-	
-	//If parallax is on for this brick
-	if (!empty( $background_offset ) ){
-		
-		$background_css_output .= 'background-position-y:' . $background_offset . ';';
-		
-	}
-			
-	//Return Attribute Output
-	return $background_css_output;
-	
-}
-//add_filter( 'mp_brick_bg_after_css', 'mp_stacks_parallax_background_offset_css', 10, 2);
-
-
-

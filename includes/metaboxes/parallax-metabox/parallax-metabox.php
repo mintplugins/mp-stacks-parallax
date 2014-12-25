@@ -97,7 +97,7 @@ function mp_stacks_parallax_create_meta_box(){
 		),
 		array(
 			'field_id'  => 'mp_stacks_parallax_c1_offset',
-			'field_title'  =>  __('Content-Type 2\'s Offset','mp_stacks_parallax' ),
+			'field_title'  =>  __('Content-Type 1\'s Offset','mp_stacks_parallax' ),
 			'field_description'  => __( 'Enter the number of pixels to offset.','mp_stacks_parallax' ),
 			'field_value'  => '0',
 			'field_type'  => 'number',
@@ -119,10 +119,6 @@ function mp_stacks_parallax_create_meta_box(){
 	//Custom filter to allow for add-on plugins to hook in their own data for add_meta_box array
 	$mp_stacks_parallax_add_meta_box = has_filter('mp_stacks_parallax_meta_box_array') ? apply_filters( 'mp_stacks_parallax_meta_box_array', $mp_stacks_parallax_add_meta_box) : $mp_stacks_parallax_add_meta_box;
 	
-	//Globalize the and populate mp_stacks_features_items_array (do this before filter hooks are run)
-	global $global_mp_stacks_parallax_items_array;
-	$global_mp_stacks_parallax_items_array = $mp_stacks_parallax_items_array;
-	
 	//Custom filter to allow for add on plugins to hook in their own extra fields 
 	$mp_stacks_parallax_items_array = has_filter('mp_stacks_parallax_items_array') ? apply_filters( 'mp_stacks_parallax_items_array', $mp_stacks_parallax_items_array) : $mp_stacks_parallax_items_array;
 	
@@ -130,4 +126,4 @@ function mp_stacks_parallax_create_meta_box(){
 	global $mp_stacks_parallax_meta_box;
 	$mp_stacks_parallax_meta_box = new MP_CORE_Metabox($mp_stacks_parallax_add_meta_box, $mp_stacks_parallax_items_array);
 }
-add_action('plugins_loaded', 'mp_stacks_parallax_create_meta_box');
+add_action('mp_brick_metabox', 'mp_stacks_parallax_create_meta_box');
