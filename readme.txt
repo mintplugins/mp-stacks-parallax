@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: page, builder, stacks, bricks
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.0.1
+Stable tag: 1.0.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,10 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.2 = April 1, 2015
+* Set up better defaults for Parallax Options with changes to MP Core in version 1.0.1.1
+* Changed parallax bg height from px to %. This way it grows with the height of the brick rather than remaining static. Better for different screen sizes.
 
 = 1.0.0.1 = December 25, 2014
 * Added html change log

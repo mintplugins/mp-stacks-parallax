@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Parallax
 Plugin URI: http://mintplugins.com
 Description: This is an addon to the MP Stacks plugin which makes your stacks scroll using a parallax effect
-Version: 1.0.0.1
+Version: 1.0.0.2
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_stacks_parallax
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_PARALLAX_VERSION' ) )
-	define( 'MP_STACKS_PARALLAX_VERSION', '1.0.0.1' );
+	define( 'MP_STACKS_PARALLAX_VERSION', '1.0.0.2' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_PARALLAX_PLUGIN_URL' ) )
