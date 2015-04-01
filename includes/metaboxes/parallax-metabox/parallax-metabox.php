@@ -43,13 +43,6 @@ function mp_stacks_parallax_create_meta_box(){
 			'field_type'  => 'checkbox',
 		),
 		array(
-			'field_id'  => 'mp_stacks_parallax_bg_height',
-			'field_title'  =>  __('Parallax Background Height','mp_stacks_parallax' ),
-			'field_description'  => __( '<br />Recommended: Make this twice the height of your brick. ','mp_stacks_parallax' ),
-			'field_value'  => '',
-			'field_type'  => 'number',
-		),
-		array(
 			'field_id'  => 'mp_stacks_parallax_speed_settings',
 			'field_title'  =>  __('Speed Settings','mp_stacks_parallax' ),
 			'field_description'  => __( '<br />Click to open the speed settings dialog. ','mp_stacks_parallax' ),
@@ -62,6 +55,14 @@ function mp_stacks_parallax_create_meta_box(){
 			'field_description'  => __( 'Select the speed at which the background should move.<br /><br />Slowest to Fastest','mp_stacks_parallax' ),
 			'field_value'  => '30',
 			'field_type'  => 'input_range',
+			'field_showhider'  => 'mp_stacks_parallax_speed_settings',
+		),
+		array(
+			'field_id'  => 'mp_stacks_parallax_bg_height_percent',
+			'field_title'  =>  __('Background Height Percentage','mp_stacks_parallax' ),
+			'field_description'  => __( 'If you see a gap underneath your background image when scrolling, increase this number. (Percentage is in relation to the current height of the Brick on the user\'s device.)','mp_stacks_parallax' ),
+			'field_value'  => '110',
+			'field_type'  => 'number',
 			'field_showhider'  => 'mp_stacks_parallax_speed_settings',
 		),
 		array(
