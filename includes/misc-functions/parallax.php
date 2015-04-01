@@ -28,7 +28,7 @@ function mp_stacks_parallax_scripts(){
 		//We don't need this on mobile devices because it doesn't work properly
 		return;
 	}
-
+	
 	//Scripts
 	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery' ), false, true );
 	
@@ -37,6 +37,27 @@ function mp_stacks_parallax_scripts(){
 	
 }
 add_action( 'wp_enqueue_scripts', 'mp_stacks_parallax_scripts');
+
+/**
+ * Make Parallax items visible if no JS enabled
+ *
+ * @since    1.0.0
+ * @link     http://mintplugins.com/doc/
+ * @return   void
+ */
+function mp_stacks_parallax_visible_if_no_js(){
+	
+	echo '
+	<noscript>
+		<style type="text/css">
+			.mp-brick-parallax{
+				visibility:visible;
+			}
+		</style>
+	</noscript>';
+	
+}
+add_action( 'wp_head', 'mp_stacks_parallax_visible_if_no_js');
 
 /**
  * Filter Function which returns class name for a brick
@@ -50,10 +71,10 @@ add_action( 'wp_enqueue_scripts', 'mp_stacks_parallax_scripts');
 function mp_stacks_parallax_brick_class( $classes, $post_id ){
 	
 	//Get Parallax On setting
-	$parallax_on = get_post_meta( $post_id, 'mp_stacks_parallax_on', true );	
+	$parallax_on = mp_core_get_post_meta_checkbox( $post_id, 'mp_stacks_parallax_on', false );		
 	
 	//If parallax is on for this brick
-	if (!empty( $parallax_on ) ){
+	if ( $parallax_on ){
 		
 		//Add the parallax class name to the brick
 		$classes .= ' mp-brick-parallax';
@@ -84,17 +105,20 @@ function mp_stacks_parallax_brick_bg_css( $css_output, $post_id ){
 	}
 	
 	//Get Parallax On setting
-	$parallax_on = get_post_meta( $post_id, 'mp_stacks_parallax_on', true );	
+	$parallax_on = mp_core_get_post_meta_checkbox( $post_id, 'mp_stacks_parallax_on', false );	
 	
 	//If parallax is on for this brick
-	if (!empty( $parallax_on ) ){
+	if ( $parallax_on ){
 		
-		//Get parallax bg size
-		$brick_bg_height = get_post_meta($post_id, 'mp_stacks_parallax_bg_height', true);
-		$brick_bg_height = empty($brick_bg_height) ? '200%' : $brick_bg_height . 'px';
+		//Get parallax bg height percentage (this was added in a later version than the pixel version above)
+		$brick_bg_height_percent = mp_core_get_post_meta($post_id, 'mp_stacks_parallax_bg_height_percent', 110);
 		
-		//Add style lines to css output
-		$css_output .= 'height: ' . $brick_bg_height . ';';
+		if ( $brick_bg_height_percent ){
+		
+			//Add style lines to css output
+			$css_output .= 'height: ' . $brick_bg_height_percent . '%;';
+		
+		}
 		
 	}
 	
@@ -124,34 +148,31 @@ function mp_stacks_parallax_brick_attributes( $attribute_output, $post_id ){
 	}
 	
 	//Get Parallax On setting
-	$parallax_on = get_post_meta( $post_id, 'mp_stacks_parallax_on', true );	
+	$parallax_on = mp_core_get_post_meta_checkbox( $post_id, 'mp_stacks_parallax_on', false );
 	
 	//If parallax is on for this brick
-	if (!empty( $parallax_on ) ){
+	if ( $parallax_on ){
 		
 		//Get parallax bg speed
-		$bg_speed = get_post_meta($post_id, 'mp_stacks_parallax_bg_speed', true);
-		$bg_speed = empty( $bg_speed ) ? '1' : abs($bg_speed-101)/100;
+		$bg_speed = mp_core_get_post_meta($post_id, 'mp_stacks_parallax_bg_speed', 30);
+		$bg_speed = abs($bg_speed-101)/100;
 		
 		//Get parallax c1 speed
-		$c1_speed = get_post_meta($post_id, 'mp_stacks_parallax_c1_speed', true);
-		$c1_speed = empty( $c1_speed ) ? '1' : abs($c1_speed-101)/100;
+		$c1_speed = mp_core_get_post_meta($post_id, 'mp_stacks_parallax_c1_speed', 1);
+		$c1_speed = abs($c1_speed-101)/100;
 		
 		//Get parallax c2 speed
-		$c2_speed = get_post_meta($post_id, 'mp_stacks_parallax_c2_speed', true);
-		$c2_speed = empty( $c2_speed ) ? '1' : abs($c2_speed-101)/100;
+		$c2_speed = mp_core_get_post_meta($post_id, 'mp_stacks_parallax_c2_speed', 1);
+		$c2_speed = abs($c2_speed-101)/100;
 		
 		//Get Background Offset setting
-		$bg_offset = get_post_meta( $post_id, 'mp_stacks_parallax_bg_offset', true );	
-		$bg_offset = empty( $bg_offset ) ? '0' : $bg_offset;
+		$bg_offset = mp_core_get_post_meta( $post_id, 'mp_stacks_parallax_bg_offset', 0 );	
 	
 		//Get parallax c1 offset
-		$c1_offset = get_post_meta($post_id, 'mp_stacks_parallax_c1_offset', true);
-		$c1_offset = empty( $c1_offset ) ? '0' : $c1_offset;
+		$c1_offset = mp_core_get_post_meta($post_id, 'mp_stacks_parallax_c1_offset', 0);
 		
 		//Get parallax c2 offset
-		$c2_offset = get_post_meta($post_id, 'mp_stacks_parallax_c2_offset', true);
-		$c2_offset = empty( $c2_offset ) ? '0' : $c2_offset;
+		$c2_offset = mp_core_get_post_meta($post_id, 'mp_stacks_parallax_c2_offset', 0);
 		
 		//Add bg speed attribute
 		$attribute_output .= ' mp_brick_parallax_bg_speed="' . $bg_speed . '" ';
