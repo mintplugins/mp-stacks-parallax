@@ -13,7 +13,7 @@ function mp_parallax($){
 		//Brick position variables
 		var mp_brick_offset = $(mp_brick).offset();
 		var mp_brick_offset_from_top = mp_brick_offset.top;
-		var mp_brick_y = mp_brick_offset_from_top-$(window).scrollTop()		
+		var mp_brick_y = mp_brick_offset_from_top-$(window).scrollTop();	
 		
 		//Speed variables
 		bg_speed = $(this).attr( 'mp_brick_parallax_bg_speed' );
