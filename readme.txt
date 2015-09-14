@@ -3,12 +3,13 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: page, builder, stacks, bricks
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 1.0.0.2
+Tested up to: 4.2
+Stable tag: 1.0.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This is an addon to the MP Stacks plugin which makes your stacks scroll using a parallax effect
+
 == Description ==
 
 This is an addon to the MP Stacks plugin which makes your stacks scroll using a parallax effect
@@ -31,6 +32,12 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.3 = September 14, 2015
+* Changed name of CSS stylesheet from "style.css" to "mp-stacks-parallax.css".
+* Changed name of js file from "scripts.js" to "mp-stacks-parallax.js".
+* Metabox controls now load using ajax.
+* Front-End Scripts now enqueued only when needed.
 
 = 1.0.0.2 = April 1, 2015
 * Set up better defaults for Parallax Options with changes to MP Core in version 1.0.1.1
