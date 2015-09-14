@@ -5,38 +5,13 @@
  * @link http://mintplugins.com/doc/
  * @since 1.0.0
  *
- * @package    Mp Stacks Parallax
+ * @package    MP Stacks Parallax
  * @subpackage Functions
  *
- * @copyright   Copyright (c) 2014, Mint Plugins
+ * @copyright   Copyright (c) 2015, Mint Plugins
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author      Philip Johnston
  */
- 
-/**
- * Enqueue Parallax scripts
- *
- * @since    1.0.0
- * @link     http://mintplugins.com/doc/
- * @see      wp_enqueue_script()
- * @see      wp_enqueue_style()
- * @return   void
- */
-function mp_stacks_parallax_scripts(){
-	
-	if ( mp_core_is_iphone() || mp_core_is_android() ){
-		//We don't need this on mobile devices because it doesn't work properly
-		return;
-	}
-	
-	//Scripts
-	wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/scripts.js', dirname( __FILE__ ) ), array( 'jquery' ), false, true );
-	
-	//css
-	wp_enqueue_style( 'mp_stacks_parallax_css', plugins_url( '/css/style.css', dirname( __FILE__ ) ), array( 'mp_stacks_style' ) );
-	
-}
-add_action( 'wp_enqueue_scripts', 'mp_stacks_parallax_scripts');
 
 /**
  * Make Parallax items visible if no JS enabled
@@ -109,7 +84,13 @@ function mp_stacks_parallax_brick_bg_css( $css_output, $post_id ){
 	
 	//If parallax is on for this brick
 	if ( $parallax_on ){
+
+		//Scripts
+		wp_enqueue_script( 'mp_stacks_parallax_scripts', plugins_url( '/js/mp-stacks-parallax.js', dirname( __FILE__ ) ), array( 'jquery' ), MP_STACKS_PARALLAX_VERSION, true );
 		
+		//css
+		wp_enqueue_style( 'mp_stacks_parallax_css', plugins_url( '/css/mp-stacks-parallax.css', dirname( __FILE__ ) ), array( 'mp_stacks_style' ), MP_STACKS_PARALLAX_VERSION );
+	
 		//Get parallax bg height percentage (this was added in a later version than the pixel version above)
 		$brick_bg_height_percent = mp_core_get_post_meta($post_id, 'mp_stacks_parallax_bg_height_percent', 110);
 		
