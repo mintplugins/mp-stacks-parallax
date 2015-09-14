@@ -103,7 +103,16 @@ jQuery(document).ready(function($){
 	$('.mp-brick-parallax').each(function(){
 		//Show. This prevents it from "jumping" when the DOM is loaded
 		$(this).css('visibility', 'visible');
-	})
+	});
+	
+	//Make Parallaxed-Bricks visible if they were loaded through ajax
+	$( document ).ajaxComplete(function() {
+		//Show. This prevents it from "jumping" when the DOM is loaded
+		$('.mp-brick-parallax').each(function(){
+			//Show. This prevents it from "jumping" when the DOM is loaded
+			$(this).css('visibility', 'visible');
+		});
+	});
 	
 	//Only run Parallax on desktops. Mobile browsers aren't ready.
 	if (!mp_parallax_isMobile()){
